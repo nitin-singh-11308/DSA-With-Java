@@ -13,11 +13,16 @@ public class BubbleSort {
         int n = arr.length;
         printArray(arr);
         for (int i = 0; i < n-1; i++) {
-            if(arr[i]>arr[i+1]){
-                int temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
+            boolean isSorted = true;
+            for (int j = 0; j < n-i-1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    isSorted = false;
+                }
             }
+            if (isSorted == true) break;
         }
 
         printArray(arr);
